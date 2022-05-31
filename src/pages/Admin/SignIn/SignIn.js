@@ -14,7 +14,7 @@ export default function SignIn() {
             <Login></Login>
           </TabPane>
           <TabPane tab={<span>Resgistro</span>} key="2">
-            Hola
+            <Register></Register>
           </TabPane>
         </Tabs>
       </Content>
