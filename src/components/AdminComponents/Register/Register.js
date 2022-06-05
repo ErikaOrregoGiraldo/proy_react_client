@@ -87,6 +87,7 @@ export default function RegisterForm() {
         });
       } else {
         const result = await signUpApi(inputs);
+        console.log(result);
         if (!result.user_creado) {
           notification["error"]({
             message: result.message,

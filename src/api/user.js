@@ -34,3 +34,39 @@ export function signUpApi(data) {
       };
     });
 }
+
+export function signInApi(data) {
+  const url = `${basePath}/${apiVersion}/signin`;
+  console.log(url);
+  const params = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  return fetch(url, params)
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      console.log(result);
+      if (result.accessToken) {
+        return {
+          login: true,
+          message: "Login correcto",
+        };
+      }
+      return {
+        login: false,
+        message: result.message,
+      };
+    })
+    .catch((err) => {
+      return {
+        login: false,
+        message: err.message,
+      };
+    });
+}
