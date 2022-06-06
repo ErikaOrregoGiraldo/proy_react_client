@@ -1,9 +1,21 @@
 import React from "react";
 import { Card } from "antd";
 import "./cards.scss";
+import { getAccessToken } from "../../api/auth";
+import { useNavigate } from "react-router-dom";
+
 const { Meta } = Card;
 
 export default function Admin() {
+  const user = getAccessToken();
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (!user) {
+      navigate("/admin/login");
+    }
+  });
+
   return (
     <div className="container">
       <div className="cards">

@@ -4,6 +4,7 @@ import jwtDecode from "jwt-decode";
 export function getAccessToken() {
   const accessToken = localStorage.getItem(ACCESS_TOKEN);
   if (!accessToken || accessToken === "null") return null;
+  console.log(accessToken);
 
   return expireToken(accessToken) ? null : accessToken;
 }
@@ -13,6 +14,11 @@ export function getRefreshToken() {
   if (!refreshToken || refreshToken === "null") return null;
 
   return expireToken(refreshToken) ? null : refreshToken;
+}
+
+export function LogOut() {
+  localStorage.removeItem(ACCESS_TOKEN);
+  localStorage.removeItem(REFRESH_TOKEN);
 }
 
 const expireToken = (token) => {

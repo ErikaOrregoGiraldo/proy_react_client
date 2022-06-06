@@ -6,6 +6,7 @@ import Register from "../../../components/AdminComponents/Register";
 export default function SignIn() {
   const { Content } = Layout;
   const { TabPane } = Tabs;
+
   return (
     <Layout>
       <Content>

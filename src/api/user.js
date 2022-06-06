@@ -46,27 +46,7 @@ export function signInApi(data) {
     },
   };
 
-  return fetch(url, params)
-    .then((response) => {
-      return response.json();
-    })
-    .then((result) => {
-      console.log(result);
-      if (result.accessToken) {
-        return {
-          login: true,
-          message: "Login correcto",
-        };
-      }
-      return {
-        login: false,
-        message: result.message,
-      };
-    })
-    .catch((err) => {
-      return {
-        login: false,
-        message: err.message,
-      };
-    });
+  return fetch(url, params).then((response) => {
+    return response.json();
+  });
 }

@@ -195,7 +195,12 @@ export default function RegisterForm() {
           He leído y acepto la política de privacidad.
         </Checkbox>
       </Form.Item>
-      <Button onClick={register} className="register-form__button">
+      <Button
+        type="primary"
+        shape="round"
+        onClick={register}
+        className="register-form__button"
+      >
         Crear cuenta
       </Button>
     </Form>

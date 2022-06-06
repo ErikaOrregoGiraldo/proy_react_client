@@ -11,6 +11,7 @@ export default function LayoutAdmin(props) {
   // Se especifican los componentes que queremos obtener del layout
   const { Header, Content, Footer } = Layout;
   const { children } = props;
+
   return (
     <Layout className="layout-admin">
       <Header className="layout-admin__header">

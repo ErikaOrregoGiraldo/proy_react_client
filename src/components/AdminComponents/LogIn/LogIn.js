@@ -10,6 +10,7 @@ import {
   emailValidation,
   minLenghtValidation,
 } from "../../../validations/FormValidations";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../api/constants.js";
 
 export default function LoginForm() {
   const [inputs, setInputs] = useState({
@@ -36,6 +37,11 @@ export default function LoginForm() {
     }
   };
 
+  const navigate = useNavigate();
+  const redirect = () => {
+    navigate("/admin");
+  };
+
   const login = async (e) => {
     e.preventDefault();
     const emailVal = inputs.email;
@@ -47,7 +53,7 @@ export default function LoginForm() {
       });
     } else {
       const result = await signInApi(inputs);
-      if (!result.login) {
+      if (!result.accessToken) {
         notification["error"]({
           message: result.message,
         });
@@ -55,7 +61,11 @@ export default function LoginForm() {
         notification["success"]({
           message: result.message,
         });
-        window.location = "/admin";
+        const { accessToken, refreshToken } = result;
+        localStorage.setItem(ACCESS_TOKEN, accessToken);
+        localStorage.setItem(REFRESH_TOKEN, refreshToken);
+
+        redirect();
       }
     }
   };
@@ -84,7 +94,12 @@ export default function LoginForm() {
           value={inputs.password}
         ></Input>
       </Form.Item>
-      <Button onClick={login} className="login-form__button">
+      <Button
+        type="primary"
+        shape="round"
+        onClick={login}
+        className="login-form__button"
+      >
         LogIn
       </Button>
     </Form>

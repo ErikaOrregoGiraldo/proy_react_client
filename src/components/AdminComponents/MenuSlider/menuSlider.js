@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
-import { HomeOutlined, MenuOutlined } from "@ant-design/icons";
+import { HomeOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
 import "./menuSlider.scss";
 
 export default function MenuSlider(props) {
@@ -12,7 +12,7 @@ export default function MenuSlider(props) {
     <Sider className="admin-slider" collapsed={menuCollapsed}>
       <Menu theme="dark" mode="inline" defaultSelectedKeys={["/admin"]}>
         <Menu.Item key="1">
-          <Link to={"/admin"}>
+          <Link to={"/"}>
             <HomeOutlined />
             <span className="nav-text">Home</span>
           </Link>
@@ -21,6 +21,12 @@ export default function MenuSlider(props) {
           <Link to={"/admin/menu-web"}>
             <MenuOutlined />
             <span className="nav-text">Web Menu</span>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="3">
+          <Link to={"/admin/login"}>
+            <UserOutlined />
+            <span className="nav-text">Registrarse</span>
           </Link>
         </Menu.Item>
       </Menu>
