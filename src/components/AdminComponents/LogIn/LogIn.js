@@ -37,10 +37,10 @@ export default function LoginForm() {
     }
   };
 
-  const navigate = useNavigate();
-  const redirect = () => {
-    navigate("/admin");
-  };
+  // const navigate = useNavigate();
+  // const redirect = () => {
+  //   navigate("/admin");
+  // };
 
   const login = async (e) => {
     e.preventDefault();
@@ -65,7 +65,7 @@ export default function LoginForm() {
         localStorage.setItem(ACCESS_TOKEN, accessToken);
         localStorage.setItem(REFRESH_TOKEN, refreshToken);
 
-        redirect();
+        window.location.href = "/admin";
       }
     }
   };

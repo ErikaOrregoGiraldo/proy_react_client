@@ -12,7 +12,7 @@ export default function Admin() {
 
   React.useEffect(() => {
     if (!user) {
-      navigate("/admin/login");
+      navigate("/admin");
     }
   });
 
