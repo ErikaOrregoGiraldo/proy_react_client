@@ -6,9 +6,11 @@ import AdminSignIn from "../pages/Admin/SignIn/SignIn";
 import HomePage from "../pages/Home";
 import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound/index";
+import AdminUsers from "../pages/Admin/Users/";
 import Modelo1 from "../pages/Admin/modelo1";
 import Modelo2 from "../pages/Admin/modelo2";
 import Modelo3 from "../pages/Admin/modelo3";
+import AdminSubjects from "../pages/Admin/Subjects/Subject";
 
 const routesAdmin = [
   {
@@ -20,6 +22,16 @@ const routesAdmin = [
     path: "/admin/login",
     layout: LayoutAdmin,
     component: AdminSignIn,
+  },
+  {
+    path: "/admin/users",
+    layout: LayoutAdmin,
+    component: AdminUsers,
+  },
+  {
+    path: "/admin/subjects",
+    layout: LayoutAdmin,
+    component: AdminSubjects,
   },
   {
     path: "/admin/modelo1",
